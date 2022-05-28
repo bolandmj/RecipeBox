@@ -34,19 +34,5 @@
 
 
 
-
-
-
-# Product Backlog:
-
-
-
-
-
-
-
-
-
-
-
 #   ScrumRole:
+* Max Boland: Scrum Master
