@@ -62,9 +62,9 @@ https://projects.invisionapp.com/prototype/cl3q4wob7008cgh014ycqexje/play
 
 ##   ScrumRole:
 * Max Boland: Scrum Master
-*Raeshawn bart: mid devoloper
-*Ian Hegarty: UI Developer
+* Raeshawn bart: mid devoloper
+* Ian Hegarty: UI Developer
 
 
-##Weekly Meeting
+##  Weekly Meeting
 We will be meeting every Tuesday at 4pm via microsoft teams
