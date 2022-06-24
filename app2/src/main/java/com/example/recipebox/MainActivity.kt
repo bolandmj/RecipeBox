@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,23 +19,31 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
+
                 ) {
-                    Greeting("Android")
+                    Scaffold()
                 }
             }
+
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Scaffold() {
+    val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = { TopAppBar(title = {Text("Recipe Box")},backgroundColor = MaterialTheme.colors.primary)  },
+        content = { Text("Welcome to Recipe Box! [ADD CONTENT HERE IN SCAFFOLD]") },
+    )
 }
+
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     RecipeBoxTheme {
-        Greeting("Android")
+        Scaffold()
     }
 }
