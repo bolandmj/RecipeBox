@@ -17,5 +17,24 @@ public class UserDatabase {
         this.PhoneNumber=PhoneNumber;
     }
 
+    public int getID() {
+
+        return ID;
+
+    }
+
+    public String getName() {
+
+        return Name;
+
+    }
+
+    public String getPhoneNumber() {
+
+        return PhoneNumber;
+
+    }
+
+
 
 }
