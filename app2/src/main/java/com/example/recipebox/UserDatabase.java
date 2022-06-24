@@ -17,6 +17,26 @@ public class UserDatabase {
         this.PhoneNumber=PhoneNumber;
     }
 
+    public void setID(int ID) {
+
+        this.ID = ID;
+
+    }
+
+    public void setName(String name) {
+
+        Name = name;
+
+    }
+    public void setPhoneNumber(String phoneNumber) {
+
+        PhoneNumber = phoneNumber;
+
+    }
+
+
+
+
     public int getID() {
 
         return ID;
