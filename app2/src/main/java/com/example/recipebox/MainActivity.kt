@@ -1,6 +1,7 @@
 package com.example.recipebox
 
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -38,6 +39,10 @@ fun RecipeDetails(name: String) {
     val context = LocalContext.current
 
     Column {
+        Text(
+            text = "Recipe Box"
+        )
+
         OutlinedTextField(
             value = recipeName,
             onValueChange = { recipeName = it },
