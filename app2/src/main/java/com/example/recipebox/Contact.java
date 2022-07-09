@@ -3,15 +3,15 @@ package com.example.recipebox;
 
 //java class database
 //users information
-public class UserDatabase {
+public class Contact {
     int ID;
     String Name;
     String PhoneNumber;
 
-    public UserDatabase(String Name, String PhoneNumber){
+    public Contact(String Name, String PhoneNumber){
       this.PhoneNumber=PhoneNumber;
     }
-    public UserDatabase(int ID,String Name, String PhoneNumber){
+    public Contact(int ID, String Name, String PhoneNumber){
         this.ID=ID;
         this.Name=Name;
         this.PhoneNumber=PhoneNumber;
