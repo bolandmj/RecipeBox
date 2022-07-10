@@ -79,29 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return contactList;
     }
 
-    public List<Contact> getAllContacts(){
-        List<Contact> contactList = new ArrayList<>();
 
-        String selectQuery = "SELECT *FROM " + TABLE_CONTACTS;
-
-        SQLiteDatabase db =this.getWritableDatabase();
-
-        Cursor cursor =db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()){
-            do{
-                Contact contact = new Contact();
-                contact.setId(Integer.parseInt(cursor.getString(0)));
-                contact.setName(cursor.getString(1));
-                contact.setPhone_number(cursor.getString(2));
-
-                contactList.add(contact);
-
-            }while(cursor.moveToNext());
-
-        }
-        return contactList;
-    }
 
     public int UpdateContact (Contact contact){
         SQLiteDatabase db =this.getWritableDatabase();

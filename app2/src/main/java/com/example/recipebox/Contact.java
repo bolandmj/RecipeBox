@@ -8,7 +8,7 @@ public class Contact {
     String name;
     String phone_number;
 
-    public Contact(String name, String phone_number){
+    public Contact(){
 
         this.phone_number=phone_number;
     }
