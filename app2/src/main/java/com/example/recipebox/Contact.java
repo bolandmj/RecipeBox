@@ -4,54 +4,59 @@ package com.example.recipebox;
 //java class database
 //users information
 public class Contact {
-    int ID;
-    String Name;
-    String PhoneNumber;
+    int id;
+    String name;
+    String phone_number;
 
-    public Contact(String Name, String PhoneNumber){
-      this.PhoneNumber=PhoneNumber;
-    }
-    public Contact(int ID, String Name, String PhoneNumber){
-        this.ID=ID;
-        this.Name=Name;
-        this.PhoneNumber=PhoneNumber;
+    public Contact(String name, String phone_number){
+
+        this.phone_number=phone_number;
     }
 
-    public void setID(int ID) {
+    public Contact(int id, String name, String phone_number){
+        this.id=id;
+        this.name=name;
+        this.phone_number=phone_number;
+    }
 
-        this.ID = ID;
+
+
+
+    public void setId(int id) {
+
+        this.id = id;
 
     }
 
     public void setName(String name) {
 
-        Name = name;
+        this.name = name;
 
     }
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhone_number(String phone_number) {
 
-        PhoneNumber = phoneNumber;
+        this.phone_number = phone_number;
 
     }
 
 
 
 
-    public int getID() {
+    public int getId() {
 
-        return ID;
+        return id;
 
     }
 
     public String getName() {
 
-        return Name;
+        return name;
 
     }
 
-    public String getPhoneNumber() {
+    public String getPhone_number() {
 
-        return PhoneNumber;
+        return phone_number;
 
     }
 
