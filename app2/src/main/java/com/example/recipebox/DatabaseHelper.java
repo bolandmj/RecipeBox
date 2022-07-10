@@ -3,6 +3,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME="contactsManager";
@@ -53,6 +55,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
           return contact;
     }
+
+    public List<Contact> getAllContacts(){
+        List<Contact> contactList = new ArrayList<>();
+
+        String selectQuery = "SELECT *FROM" + TABLE_CONTACTS;
+        SQLiteDatabase db =this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()){
+            do{
+                Contact contact = new Contact();
+                contact.setId(Integer.parseInt(cursor.getString(0)));
+                contact.setName(cursor.getString(1));
+                contact.setPhone_number(cursor.getString(2));
+
+                contactList.add(contact);
+            }while (cursor.moveToNext());
+        }
+        return contactList;
+    }
+
+    public List<Contact> getAllContacts(){
+        List<Contact> contactList = new ArrayList<>();
+
+        String selectQuery = "SELECT *FROM" + TABLE_CONTACTS;
+
+        SQLiteDatabase db =this.getWritableDatabase();
+
+        Cursor cursor =db.rawQuery(selectQuery, null);
+
+        if (cursorr.moveToFirst()){
+            do{
+                Contact contact = new Contact();
+                contact.setId(Integer.parseInt(cursor.getString(0)));
+                contact.setName(cursor.getString(1));
+                contact.setPhone_number(cursor.getString(2));
+
+                contactList.add(contact);
+
+            }while(cursor.moveToNext());
+
+        }
+        return contactList;
+    }
+
+    
+
+
 
 
 }
