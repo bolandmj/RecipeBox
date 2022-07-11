@@ -3,7 +3,9 @@ package com.example.recipebox
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -35,7 +37,11 @@ fun Scaffold() {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopAppBar(title = {Text("Recipe Box")},backgroundColor = MaterialTheme.colors.primary)  },
-        content = { Text("Welcome to Recipe Box! [ADD CONTENT HERE IN SCAFFOLD]") },
+        content = { padding ->
+            Column(modifier = Modifier
+                .padding(padding)) {
+                Text("Welcome to Recipe Box! [ADD CONTENT HERE IN SCAFFOLD]") }
+        },
     )
 }
 
