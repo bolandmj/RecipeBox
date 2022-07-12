@@ -6,8 +6,10 @@ import android.view.Menu
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -20,8 +22,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.recipebox.Scaffold
 import com.example.recipebox.ui.theme.RecipeBoxTheme
+import com.example.recipebox.ui.theme.White
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,22 +97,22 @@ fun Scaffold() {
 
         content = { padding ->
             Column(modifier = Modifier
-                .padding(padding)) {
-            Text("Welcome to Recipe Box! [ADD CONTENT HERE IN SCAFFOLD]")
-            OutlinedTextField(
-                value = recipeName,
-                onValueChange = { recipeName = it },
-                label = { Text(stringResource(R.string.recipeName)) }
-            )
-            Button(
-                onClick = {
-                    Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
+                .padding(10.dp)) {
+                OutlinedTextField(
+                    value = recipeName,
+                    onValueChange = { recipeName = it },
+                    label = { Text(stringResource(R.string.recipeName)) },
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Button(
+                    onClick = {
+                        Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
+                    }
+                ) {
+                    Text(text = "Search")
                 }
-            ) {
-                Text(text = "Search")
             }
-        }
-})}
+        })}
 
 
 
