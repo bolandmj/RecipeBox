@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RecipeBox</string>
+    <string name="recipeName" />
 </resources>
