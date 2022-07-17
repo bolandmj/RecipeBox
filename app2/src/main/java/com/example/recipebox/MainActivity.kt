@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -98,28 +99,43 @@ fun Scaffold() {
 				}
 			)}
 
-	) { padding ->
-			Column(modifier = Modifier.padding(10.dp)) {
+	) {
+		Column(modifier = Modifier.padding(10.dp)) {
 				OutlinedTextField(
 					value = recipeName,
 					onValueChange = { recipeName = it },
 					label = { Text(stringResource(R.string.recipeName)) },
-					modifier = Modifier.fillMaxWidth()
+					modifier = Modifier.fillMaxWidth(),
 				)
 				Button(
 					onClick = {
-						Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
+						Toast.makeText(context, recipeName, Toast.LENGTH_LONG).show()
 					}
 				) {
 					Text(text = "Search", modifier = Modifier.fillMaxWidth())
 				}
 
 				//Temporary
-				Text(text="Recipe 1", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
-				Text(text="Recipe 2", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
-				Text(text="Recipe 3", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
-				Text(text="Recipe 4", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
-				Text(text="Recipe 5", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
+				Text(text="Recipe 1", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
+				Text(text="Recipe 2", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
+				Text(text="Recipe 3", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
+				Text(text="Recipe 4", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
+				Text(text="Recipe 5", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
 
 		    }
 
