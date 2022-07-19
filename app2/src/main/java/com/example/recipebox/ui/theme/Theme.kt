@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 private val DarkColorPalette = darkColors(
     primary = Red200,
     primaryVariant = Red700,
-    secondary = Blue201
+    secondary = Blue200
 )
 
 private val LightColorPalette = lightColors(
@@ -40,6 +40,6 @@ fun RecipeBoxTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composa
         colors = colors,
         typography = Typography,
         shapes = Shapes,
-        content = content
+        content = content,
     )
 }
