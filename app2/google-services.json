@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "105116603054",
+    "project_id": "recipebox-cd001",
+    "storage_bucket": "recipebox-cd001.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105116603054:android:a972f441530bdcf02cd33f",
+        "android_client_info": {
+          "package_name": "com.example.recipebox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105116603054-3r5m21dghf53boek5ii6gj5qqmcrqv52.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.recipebox",
+            "certificate_hash": "987d7c4a25c2057708da804ef0d142e2cb912e87"
+          }
+        },
+        {
+          "client_id": "105116603054-q45h80fht69krae9pml7vjdqlr8qaktn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd0Q2IsSq3k-yt-3Ve5oHZ3MicXvz-FnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105116603054-q45h80fht69krae9pml7vjdqlr8qaktn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

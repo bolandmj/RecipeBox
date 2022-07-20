@@ -4,10 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/compose-model-1656036632164.xml" value="0.12291666666666666" />
-        <entry key="..\:/Users/Efinc/AndroidStudioProjects/RecipeBoxA/app2/src/main/res/layout/activity_main.xml" value="0.12590579710144928" />
+        <entry key="..\:/Users/Blackfang81/Documents/GitHub/RecipeBox/app2/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/Efinc/AndroidStudioProjects/RecipeBoxE/app2/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.142" />
         <entry key="..\:/Users/Efinc/AndroidStudioProjects/RecipeBoxE/app2/src/main/res/drawable/ic_launcher_background.xml" value="0.142" />
         <entry key="..\:/Users/Efinc/AndroidStudioProjects/RecipeBoxE/app2/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/J/StudioProjects/RecipeBox/app2/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/ian_h/AndroidStudioProjects/RecipeBox/app2/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/ian_h/AndroidStudioProjects/RecipeBox/app2/src/main/res/drawable/ic_add_box_24.xml" value="0.1" />
+        <entry key="..\:/Users/ian_h/AndroidStudioProjects/RecipeBox/app2/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/ian_h/AndroidStudioProjects/RecipeBox/app2/src/main/res/drawable/switch_trcks.xml" value="0.1" />
+        <entry key="..\:/Users/ian_h/AndroidStudioProjects/RecipeBox/app2/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/ian_h/AndroidStudioProjects/RecipeBox/app2/src/main/res/menu/nav_menu.xml" value="0.20520833333333333" />
       </map>
     </option>
   </component>
@@ -16,5 +23,8 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SuppressKotlinCodeStyleNotification">
+    <option name="disableForAll" value="true" />
   </component>
 </project>
