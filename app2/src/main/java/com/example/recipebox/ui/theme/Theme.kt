@@ -16,7 +16,7 @@ private val LightColorPalette = lightColors(
     primary = Red500,
     primaryVariant = Red700,
     secondary = Blue200,
-    background =  Blue200
+    background =  Blue200,
 
     /* Other default colors to override
     background = Color.White,
@@ -40,6 +40,6 @@ fun RecipeBoxTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composa
         colors = colors,
         typography = Typography,
         shapes = Shapes,
-        content = content,
+        content = content
     )
 }
