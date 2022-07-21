@@ -258,6 +258,6 @@
                 android:textColor="#474646"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-</LinearLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -36,7 +37,9 @@ class MainActivity : ComponentActivity() {
 					color = MaterialTheme.colors.background
 
 				) {
-					Scaffold()
+
+						setContentView(R.layout.activity_main)
+
 				}
 			}
 
@@ -115,11 +118,26 @@ fun Scaffold() {
 				}
 
 				//Temporary
-				Text(text="Recipe 1", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
-				Text(text="Recipe 2", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
-				Text(text="Recipe 3", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
-				Text(text="Recipe 4", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
-				Text(text="Recipe 5", modifier = Modifier.background(MaterialTheme.colors.secondary).fillMaxWidth().padding(vertical = 50.dp))
+				Text(text="Recipe 1", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
+				Text(text="Recipe 2", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
+				Text(text="Recipe 3", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
+				Text(text="Recipe 4", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
+				Text(text="Recipe 5", modifier = Modifier
+					.background(MaterialTheme.colors.secondary)
+					.fillMaxWidth()
+					.padding(vertical = 50.dp))
 
 		    }
 
