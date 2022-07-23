@@ -22,9 +22,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.recipebox.Scaffold
+
 import com.example.recipebox.ui.theme.RecipeBoxTheme
 import com.example.recipebox.ui.theme.White
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.recipebox.screens.Home
+import com.example.recipebox.screens.AddRecipe
 
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +72,8 @@ fun Scaffold() {
 				actions = {
 
 					// Make post icon
-					IconButton(onClick = { Toast.makeText(context, "Make Post", Toast.LENGTH_SHORT).show() }) {
+					IconButton(onClick = {
+						navController.navigate(NavRoutes.AddRecipe.route)}) {
 						Icon(painter = painterResource(id = R.drawable.ic_add_box_24), "")
 					}
 
@@ -100,52 +106,69 @@ fun Scaffold() {
 					}
 				}
 			)}
-
 	) { padding ->
-			Column(modifier = Modifier.padding(10.dp)) {
-				OutlinedTextField(
-					value = recipeName,
-					onValueChange = { recipeName = it },
-					label = { Text(stringResource(R.string.recipeName)) },
-					modifier = Modifier.fillMaxWidth()
-				)
-				Button(
-					onClick = {
-						Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
-					}
-				) {
-					Text(text = "Search", modifier = Modifier.fillMaxWidth())
+		Column(modifier = Modifier.padding(10.dp)) {
+			OutlinedTextField(
+				value = recipeName,
+				onValueChange = { recipeName = it },
+				label = { Text(stringResource(R.string.recipeName)) },
+				modifier = Modifier.fillMaxWidth()
+			)
+			Button(
+				onClick = {
+					Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
 				}
+			) {
+				Text(text = "Search", modifier = Modifier.fillMaxWidth())
+			}
 
-				//Temporary
-				Text(text="Recipe 1", modifier = Modifier
-					.background(MaterialTheme.colors.secondary)
-					.fillMaxWidth()
-					.padding(vertical = 50.dp))
-				Text(text="Recipe 2", modifier = Modifier
-					.background(MaterialTheme.colors.secondary)
-					.fillMaxWidth()
-					.padding(vertical = 50.dp))
-				Text(text="Recipe 3", modifier = Modifier
-					.background(MaterialTheme.colors.secondary)
-					.fillMaxWidth()
-					.padding(vertical = 50.dp))
-				Text(text="Recipe 4", modifier = Modifier
-					.background(MaterialTheme.colors.secondary)
-					.fillMaxWidth()
-					.padding(vertical = 50.dp))
-				Text(text="Recipe 5", modifier = Modifier
-					.background(MaterialTheme.colors.secondary)
-					.fillMaxWidth()
-					.padding(vertical = 50.dp))
+			//Temporary
+			Text(text="Recipe 1", modifier = Modifier
+				.background(MaterialTheme.colors.secondary)
+				.fillMaxWidth()
+				.padding(vertical = 50.dp))
+			Text(text="Recipe 2", modifier = Modifier
+				.background(MaterialTheme.colors.secondary)
+				.fillMaxWidth()
+				.padding(vertical = 50.dp))
+			Text(text="Recipe 3", modifier = Modifier
+				.background(MaterialTheme.colors.secondary)
+				.fillMaxWidth()
+				.padding(vertical = 50.dp))
+			Text(text="Recipe 4", modifier = Modifier
+				.background(MaterialTheme.colors.secondary)
+				.fillMaxWidth()
+				.padding(vertical = 50.dp))
+			Text(text="Recipe 5", modifier = Modifier
+				.background(MaterialTheme.colors.secondary)
+				.fillMaxWidth()
+				.padding(vertical = 50.dp))
 
-		    }
+		}
 
-	    }
+	}
+
 }
 
+@Composable
+fun MainScreen() {
 
+	val navController = rememberNavController()
 
+	NavHost(
+		navController = navController,
+		startDestination = NavRoutes.Home.route,
+	) {
+		composable(NavRoutes.Home.route) {
+			Home(navController = navController)
+		}
+
+		composable(NavRoutes.AddRecipe.route) {
+			AddRecipe(navController = navController)
+		}
+
+	}
+}
 
 
 
