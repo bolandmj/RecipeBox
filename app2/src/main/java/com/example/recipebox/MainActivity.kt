@@ -1,7 +1,11 @@
 package com.example.recipebox
 
+import android.app.Activity.RESULT_OK
+import android.content.ContentValues.TAG
 import android.graphics.drawable.VectorDrawable
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -26,6 +30,13 @@ import com.example.recipebox.Scaffold
 import com.example.recipebox.dto.Recipe
 import com.example.recipebox.ui.theme.RecipeBoxTheme
 import com.example.recipebox.ui.theme.White
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+
+var user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,7 +124,7 @@ fun Scaffold() {
 				Button(
 					onClick = {
 						Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
-
+						signIn()
 					}
 				) {
 					Text(text = "Search", modifier = Modifier.fillMaxWidth())
@@ -146,9 +157,21 @@ fun Scaffold() {
 	    }
 }
 
+
+
 //Quick note for how to save recipe on button click when function is made:
 //var recipe = Recipe()
 //viewModel.save(recipe)
+
+/*How to make a user sign in on button click (Would be when user tries to make post):
+Button(
+	onClick = {
+		signIn()
+	}
+){
+	Text(text = "Logon")
+}
+ */
 
 
 
@@ -159,3 +182,36 @@ fun DefaultPreview() {
 		Scaffold()
 	}
 }
+
+private fun signIn() {
+	val providers = arrayListOf(
+		AuthUI.IdpConfig.EmailBuilder().build()
+	)
+	val signinIntent = AuthUI.getInstance()
+		.createSignInIntentBuilder()
+		.setAvailableProviders(providers)
+		.build()
+
+	//signInLauncher.launch(signinIntent)
+}
+/*
+//Need to figure out what dependency is missing for registerForActivityResult()!!!
+private val signInLauncher = registerForActivityResult (
+	FirebaseAuthUIActivityResultContract()
+) {
+		res -> this.signInResult(res)
+}
+*/
+
+private fun signInResult(result: FirebaseAuthUIAuthenticationResult){
+	val response = result.idpResponse
+	if (result.resultCode == RESULT_OK) {
+		user = FirebaseAuth.getInstance().currentUser
+	}else{
+		Log.e("MainActivity.kt", "Error logging in " + response?.error?.errorCode)
+	}
+}
+
+
+
+
