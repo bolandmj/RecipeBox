@@ -37,9 +37,7 @@ class MainActivity : ComponentActivity() {
 					color = MaterialTheme.colors.background
 
 				) {
-
-						setContentView(R.layout.activity_main)
-
+					Scaffold()
 				}
 			}
 
