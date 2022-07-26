@@ -146,8 +146,9 @@ fun Scaffold() {
 	    }
 }
 
-//Quick note:
+//Quick note for how to save recipe on button click when function is made:
 //var recipe = Recipe()
+//viewModel.save(recipe)
 
 
 
