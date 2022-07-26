@@ -124,7 +124,6 @@ fun Scaffold() {
 				Button(
 					onClick = {
 						Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
-						signIn()
 					}
 				) {
 					Text(text = "Search", modifier = Modifier.fillMaxWidth())
