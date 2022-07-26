@@ -23,6 +23,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.recipebox.Scaffold
+import com.example.recipebox.dto.Recipe
 import com.example.recipebox.ui.theme.RecipeBoxTheme
 import com.example.recipebox.ui.theme.White
 
@@ -112,6 +113,7 @@ fun Scaffold() {
 				Button(
 					onClick = {
 						Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
+
 					}
 				) {
 					Text(text = "Search", modifier = Modifier.fillMaxWidth())
@@ -144,8 +146,8 @@ fun Scaffold() {
 	    }
 }
 
-
-
+//Quick note:
+//var recipe = Recipe()
 
 
 
