@@ -1,0 +1,183 @@
+package com.example.recipebox
+
+import android.widget.Toast
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+
+@Composable
+fun Navigation(){
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = Screen.MainScreen.route){
+        composable(route = Screen.MainScreen.route){
+            MainScreen(navController = navController)
+        }
+        composable(route = Screen.PostScreen.route){
+            PostScreen()
+        }
+        /*
+        composable(
+            route = Screen.PostScreen.route + "?name={name}",
+            arguments = listOf(
+                navArgument("name"){
+                    type = NavType.StringType
+                    defaultValue = "Ian"
+                    nullable = true
+                }
+            )
+        ){entry ->
+            PostScreen(name = entry.arguments?.getString("name"))
+        }
+
+         */
+    }
+}
+
+@Composable
+fun MainScreen(navController: NavController){
+    var recipeName by remember { mutableStateOf("")}
+    var mDisplayMenu by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = {
+            TopAppBar(
+                title = { Text("Recipe Box")} ,backgroundColor = MaterialTheme.colors.primary,
+                actions = {
+
+                    // Make post icon
+                    IconButton(
+                        onClick = {
+                            navController.navigate((Screen.PostScreen.route))
+                        }) {
+                        Icon(painter = painterResource(id = R.drawable.ic_add_box_24), "")
+                    }
+
+                    //Searchbar
+                    IconButton(onClick = { Toast.makeText(context, "Search for Recipe", Toast.LENGTH_SHORT).show() }) {
+                        Icon(painter = painterResource(id = R.drawable.ic_search), "")
+                    }
+
+                    // Dropdown menu
+                    IconButton(onClick = { mDisplayMenu = !mDisplayMenu }) {
+                        Icon(Icons.Default.MoreVert, "")
+                    }
+                    DropdownMenu(
+                        expanded = mDisplayMenu,
+                        onDismissRequest = { mDisplayMenu = false }
+                    ) {
+
+                        DropdownMenuItem(onClick = { Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show() }) {
+                            Text(text = "Settings")
+                        }
+
+                        DropdownMenuItem(onClick = { Toast.makeText(context, "Logout", Toast.LENGTH_SHORT).show() }) {
+                            Text(text = "Logout")
+                        }
+                    }
+                }
+            )
+        }
+
+    ) { padding ->
+        Column(modifier = Modifier.padding(10.dp)) {
+            OutlinedTextField(
+                value = recipeName,
+                onValueChange = { recipeName = it },
+                label = { Text(stringResource(R.string.recipeName)) },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Button(
+                onClick = {
+                    Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
+                }
+            ) {
+                Text(text = "Search", modifier = Modifier.fillMaxWidth())
+            }
+
+            //Temporary
+            Text(text="Recipe 1", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth()
+                .padding(vertical = 50.dp))
+            Text(text="Recipe 2", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth()
+                .padding(vertical = 50.dp))
+            Text(text="Recipe 3", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth()
+                .padding(vertical = 50.dp))
+            Text(text="Recipe 4", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth()
+                .padding(vertical = 50.dp))
+            Text(text="Recipe 5", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth()
+                .padding(vertical = 50.dp))
+
+        }
+
+    }
+    /*
+    var text by remember {
+        mutableStateOf("")
+    }
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 50.dp)
+    ){
+        TextField(
+            value = text,
+            onValueChange = {
+                text = it
+            },
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            onClick = {
+                navController.navigate(Screen.PostScreen.route)
+            },
+            modifier = Modifier.align(Alignment.End)
+        ){
+            Text(text = "To post screen")
+        }
+    }
+     */
+}
+
+@Composable
+fun PostScreen(){
+
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier.fillMaxSize()
+    ){
+        Text(text = "Hello,")
+    }
+}

@@ -44,6 +44,8 @@ class MainActivity : ComponentActivity() {
 		setContent {
 			RecipeBoxTheme {
 				// A surface container using the 'background' color from the theme
+				Navigation()
+				/*
 				Surface(
 					modifier = Modifier.fillMaxSize(),
 					color = MaterialTheme.colors.background
@@ -51,6 +53,8 @@ class MainActivity : ComponentActivity() {
 				) {
 					Scaffold()
 				}
+				*/
+
 			}
 
 		}
