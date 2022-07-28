@@ -105,6 +105,8 @@ fun MainScreen(navController: NavController){
 @Composable
 fun PostScreen(){
     var recipeName by remember { mutableStateOf("")}
+    var ingredients by remember { mutableStateOf("")}
+    var directions by remember { mutableStateOf("")}
     val context = LocalContext.current
 
     Column(modifier = Modifier.padding(10.dp)) {
@@ -121,18 +123,24 @@ fun PostScreen(){
         //Ingredients
         Text(text = "Enter Ingredients for Recipe:")
         OutlinedTextField(
-            value = "ingredients",
-            onValueChange = {},
-            modifier = Modifier.fillMaxWidth().height(150.dp)
+            value = ingredients,
+            onValueChange = { ingredients = it},
+            label = { Text(stringResource(R.string.ingredients)) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(150.dp)
         )
         Spacer(modifier = Modifier.height(8.dp))
 
         //Directions
         Text(text = "Enter How To Cook Recipe:")
         OutlinedTextField(
-            value = "directions",
-            onValueChange = {},
-            modifier = Modifier.fillMaxWidth().height(300.dp)
+            value = directions,
+            onValueChange = { directions = it},
+            label = { Text(stringResource(R.string.directions)) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(300.dp)
         )
 
         Button(
