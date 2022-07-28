@@ -58,11 +58,6 @@ fun MainScreen(navController: NavController){
                         Icon(painter = painterResource(id = R.drawable.ic_add_box_24), "")
                     }
 
-                    //Searchbar
-                    IconButton(onClick = { Toast.makeText(context, "Search for Recipe", Toast.LENGTH_SHORT).show() }) {
-                        Icon(painter = painterResource(id = R.drawable.ic_search), "")
-                    }
-
                     // Dropdown menu
                     IconButton(onClick = { mDisplayMenu = !mDisplayMenu }) {
                         Icon(Icons.Default.MoreVert, "")
@@ -128,7 +123,7 @@ fun PostScreen(){
         OutlinedTextField(
             value = "ingredients",
             onValueChange = {},
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth().height(150.dp)
         )
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -137,7 +132,7 @@ fun PostScreen(){
         OutlinedTextField(
             value = "directions",
             onValueChange = {},
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth().height(300.dp)
         )
 
         Button(
