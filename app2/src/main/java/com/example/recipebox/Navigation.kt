@@ -34,27 +34,11 @@ fun Navigation(){
         composable(route = Screen.PostScreen.route){
             PostScreen()
         }
-        /*
-        composable(
-            route = Screen.PostScreen.route + "?name={name}",
-            arguments = listOf(
-                navArgument("name"){
-                    type = NavType.StringType
-                    defaultValue = "Ian"
-                    nullable = true
-                }
-            )
-        ){entry ->
-            PostScreen(name = entry.arguments?.getString("name"))
-        }
-
-         */
     }
 }
 
 @Composable
 fun MainScreen(navController: NavController){
-    var recipeName by remember { mutableStateOf("")}
     var mDisplayMenu by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
@@ -102,82 +86,70 @@ fun MainScreen(navController: NavController){
 
     ) { padding ->
         Column(modifier = Modifier.padding(10.dp)) {
-            OutlinedTextField(
-                value = recipeName,
-                onValueChange = { recipeName = it },
-                label = { Text(stringResource(R.string.recipeName)) },
-                modifier = Modifier.fillMaxWidth()
-            )
-            Button(
-                onClick = {
-                    Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
-                }
-            ) {
-                Text(text = "Search", modifier = Modifier.fillMaxWidth())
-            }
-
             //Temporary
             Text(text="Recipe 1", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
                 .fillMaxWidth()
                 .padding(vertical = 50.dp))
+            Spacer(modifier = Modifier.height(8.dp))
             Text(text="Recipe 2", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
                 .fillMaxWidth()
                 .padding(vertical = 50.dp))
+            Spacer(modifier = Modifier.height(8.dp))
             Text(text="Recipe 3", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
                 .fillMaxWidth()
                 .padding(vertical = 50.dp))
-            Text(text="Recipe 4", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
-            Text(text="Recipe 5", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
-
+            Spacer(modifier = Modifier.height(8.dp))
         }
 
     }
-    /*
-    var text by remember {
-        mutableStateOf("")
-    }
-    Column(
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 50.dp)
-    ){
-        TextField(
-            value = text,
-            onValueChange = {
-                text = it
-            },
-            modifier = Modifier.fillMaxWidth()
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Button(
-            onClick = {
-                navController.navigate(Screen.PostScreen.route)
-            },
-            modifier = Modifier.align(Alignment.End)
-        ){
-            Text(text = "To post screen")
-        }
-    }
-     */
 }
 
 @Composable
 fun PostScreen(){
+    var recipeName by remember { mutableStateOf("")}
+    val context = LocalContext.current
 
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
-    ){
-        Text(text = "Hello,")
+    Column(modifier = Modifier.padding(10.dp)) {
+        //RecipeName
+        Text(text = "Enter Name of Recipe:")
+        OutlinedTextField(
+            value = recipeName,
+            onValueChange = { recipeName = it },
+            label = { Text(stringResource(R.string.recipeName)) },
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+
+        //Ingredients
+        Text(text = "Enter Ingredients for Recipe:")
+        OutlinedTextField(
+            value = "ingredients",
+            onValueChange = {},
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+
+        //Directions
+        Text(text = "Enter How To Cook Recipe:")
+        OutlinedTextField(
+            value = "directions",
+            onValueChange = {},
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Button(
+            onClick = {
+                Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
+            }
+        ) {
+            Text(text = "Save Recipe", modifier = Modifier.fillMaxWidth())
+        }
+
+
     }
+
 }
+
