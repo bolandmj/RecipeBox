@@ -34,6 +34,9 @@ fun Navigation(){
         composable(route = Screen.PostScreen.route){
             PostScreen()
         }
+        composable(route = Screen.Cheeseburger.route){
+            Cheeseburger()
+        }
     }
 }
 
@@ -81,10 +84,10 @@ fun MainScreen(navController: NavController){
 
     ) { padding ->
         Column(modifier = Modifier.padding(10.dp)) {
-            //Temporary
+
             Button(
                 onClick = {
-
+                    navController.navigate((Screen.Cheeseburger.route))
                 }
             ) {
                 Text(text = "Cheeseburger", modifier = Modifier
@@ -175,7 +178,23 @@ fun PostScreen(){
 }
 
 @Composable
-fun cheeseburger(){
+fun Cheeseburger(){
+    Column(modifier = Modifier.padding(10.dp)) {
 
+        Text(text="Cheeseburger", modifier = Modifier
+            .background(MaterialTheme.colors.secondary)
+            .fillMaxWidth())
+
+        Text(text="Buns, Ground Beef, Salt, Pepper, American Cheese, Ketchup", modifier = Modifier
+            .background(MaterialTheme.colors.secondary)
+            .fillMaxWidth()
+            .padding(vertical = 50.dp))
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text="Form the ground beef into patties, then season with salt and pepper. Cook on medium heat 5 minutes each side. Add Cheese 1 minute before done. Put on bun and add ketchup.", modifier = Modifier
+            .background(MaterialTheme.colors.secondary)
+            .fillMaxWidth()
+            .padding(vertical = 50.dp))
+        Spacer(modifier = Modifier.height(8.dp))
+    }
 }
 
