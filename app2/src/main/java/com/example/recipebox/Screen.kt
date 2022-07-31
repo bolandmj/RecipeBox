@@ -5,5 +5,5 @@ sealed class Screen(val route : String){
     object PostScreen : Screen("post_screen")
     object Cheeseburger : Screen("cheeseburger")
     object Taco : Screen("taco")
-    object Lasagna : Screen("lasagna")
+    object ChickenParm : Screen("chickenParm")
 }
