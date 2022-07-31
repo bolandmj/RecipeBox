@@ -1,6 +1,8 @@
 package com.example.recipebox
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.recipebox.dto.Recipe
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 
@@ -21,5 +23,11 @@ class MainViewModel : ViewModel() {
         //val handle = document.set(specimen)
         //handle.addOnSuccessListener { Log.d("Firebase", "Document Saved" }
         //handle.addOnFailureListener { Log.e("Firebase", "Save failed $it " }
+/*
+        Recipe.recipeId = document.id
+        val handle = document.set(recipe)
+        handle.addOnSuccessListener { Log.d("Firebase", "Document Saved") }
+        handle.addOnFailureListener { Log.e("Firebase", "Save failed $it ") }
+*/
     }
 }

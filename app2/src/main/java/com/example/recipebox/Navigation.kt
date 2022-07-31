@@ -82,21 +82,38 @@ fun MainScreen(navController: NavController){
     ) { padding ->
         Column(modifier = Modifier.padding(10.dp)) {
             //Temporary
-            Text(text="Recipe 1", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
+            Button(
+                onClick = {
+
+                }
+            ) {
+                Text(text = "Cheeseburger", modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 50.dp))
+            }
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text="Recipe 2", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
+
+            Button(
+                onClick = {
+
+                }
+            ) {
+                Text(text = "Chicken Tacos", modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 50.dp))
+            }
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text="Recipe 3", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
-            Spacer(modifier = Modifier.height(8.dp))
+
+            Button(
+                onClick = {
+
+                }
+            ) {
+                Text(text = "Lasagna", modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 50.dp))
+            }
+
         }
 
     }
@@ -145,7 +162,8 @@ fun PostScreen(){
 
         Button(
             onClick = {
-                Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "$recipeName saved", Toast.LENGTH_LONG).show()
+                //save()
             }
         ) {
             Text(text = "Save Recipe", modifier = Modifier.fillMaxWidth())
@@ -153,6 +171,11 @@ fun PostScreen(){
 
 
     }
+
+}
+
+@Composable
+fun cheeseburger(){
 
 }
 
