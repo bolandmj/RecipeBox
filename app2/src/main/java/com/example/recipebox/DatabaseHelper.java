@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate (SQLiteDatabase db){
         String CREATE_CONTACTS_TABLE = "create table " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," +KEY_NAME + " TEXT,"+KEY_PHONE + " TEXT" + ")";
 
-        db.execSQL(CREATE_CONTACTS_TABLE);
+        db.execSQL("create table " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," +KEY_NAME + " TEXT,"+KEY_PHONE + " TEXT" + ")");
     }
 
     @Override
@@ -38,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NAME,contact.getName());
-        values.put(KEY_PHONE,contact.getPhone_number());
+        values.put(KEY_PHONE,contact.getPhoneNumber());
 
         db.insert(TABLE_CONTACTS,null , values);
         db.close();
@@ -71,7 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Contact contact = new Contact();
                 contact.setId(Integer.parseInt(cursor.getString(0)));
                 contact.setName(cursor.getString(1));
-                contact.setPhone_number(cursor.getString(2));
+                contact.setPhoneNumber(cursor.getString(2));
 
                 contactList.add(contact);
             }while (cursor.moveToNext());
@@ -86,7 +86,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME,contact.getName());
-        values.put(KEY_PHONE,contact.getPhone_number());
+        values.put(KEY_PHONE,contact.getPhoneNumber());
 
         return db.update(TABLE_CONTACTS,values,KEY_ID+"=?",new String[]{String.valueOf(contact.getId())});
 

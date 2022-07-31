@@ -6,17 +6,17 @@ package com.example.recipebox;
 public class Contact {
     int id;
     String name;
-    String phone_number;
+    String phoneNumber;
 
     public Contact(){
 
-        this.phone_number=phone_number;
+        this.phoneNumber = phoneNumber;
     }
 
-    public Contact(int id, String name, String phone_number){
+    public Contact(int id, String name, String phoneNumber){
         this.id=id;
         this.name=name;
-        this.phone_number=phone_number;
+        this.phoneNumber =phoneNumber;
     }
 
 
@@ -33,9 +33,9 @@ public class Contact {
         this.name = name;
 
     }
-    public void setPhone_number(String phone_number) {
+    public void setPhoneNumber(String phoneNumber) {
 
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
 
     }
 
@@ -54,9 +54,9 @@ public class Contact {
 
     }
 
-    public String getPhone_number() {
+    public String getPhoneNumber() {
 
-        return phone_number;
+        return phoneNumber;
 
     }
 
