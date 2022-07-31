@@ -16,7 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -33,6 +35,15 @@ fun Navigation(){
         }
         composable(route = Screen.PostScreen.route){
             PostScreen()
+        }
+        composable(route = Screen.Cheeseburger.route){
+            Cheeseburger(navController = navController)
+        }
+        composable(route = Screen.Taco.route){
+            Taco(navController = navController)
+        }
+        composable(route = Screen.ChickenParm.route){
+            ChickenParm(navController = navController)
         }
     }
 }
@@ -81,22 +92,39 @@ fun MainScreen(navController: NavController){
 
     ) { padding ->
         Column(modifier = Modifier.padding(10.dp)) {
-            //Temporary
-            Text(text="Recipe 1", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
+
+            Button(
+                onClick = {
+                    navController.navigate((Screen.Cheeseburger.route))
+                }
+            ) {
+                Text(text = "Cheeseburger", modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 50.dp))
+            }
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text="Recipe 2", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
+
+            Button(
+                onClick = {
+                    navController.navigate((Screen.Taco.route))
+                }
+            ) {
+                Text(text = "Chicken Tacos", modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 50.dp))
+            }
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text="Recipe 3", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
-            Spacer(modifier = Modifier.height(8.dp))
+
+            Button(
+                onClick = {
+                    navController.navigate((Screen.ChickenParm.route))
+                }
+            ) {
+                Text(text = "Chicken Parmesan", modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 50.dp))
+            }
+
         }
 
     }
@@ -145,7 +173,8 @@ fun PostScreen(){
 
         Button(
             onClick = {
-                Toast.makeText(context, "$recipeName", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "$recipeName saved", Toast.LENGTH_LONG).show()
+                //save()
             }
         ) {
             Text(text = "Save Recipe", modifier = Modifier.fillMaxWidth())
@@ -154,5 +183,195 @@ fun PostScreen(){
 
     }
 
+}
+
+@Composable
+fun Cheeseburger(navController: NavController){
+    var mDisplayMenu by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = {
+            TopAppBar(
+                title = { Text("Recipe Box")} ,backgroundColor = MaterialTheme.colors.primary,
+                actions = {
+
+                    // Make post icon
+                    IconButton(
+                        onClick = {
+                            navController.navigate((Screen.PostScreen.route))
+                        }) {
+                        Icon(painter = painterResource(id = R.drawable.ic_add_box_24), "")
+                    }
+
+                    // Dropdown menu
+                    IconButton(onClick = { mDisplayMenu = !mDisplayMenu }) {
+                        Icon(Icons.Default.MoreVert, "")
+                    }
+                    DropdownMenu(
+                        expanded = mDisplayMenu,
+                        onDismissRequest = { mDisplayMenu = false }
+                    ) {
+
+                        DropdownMenuItem(onClick = { Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show() }) {
+                            Text(text = "Settings")
+                        }
+
+                        DropdownMenuItem(onClick = { Toast.makeText(context, "Logout", Toast.LENGTH_SHORT).show() }) {
+                            Text(text = "Logout")
+                        }
+                    }
+                }
+            )
+        }
+
+    ) { padding ->
+        Column(modifier = Modifier.padding(10.dp)) {
+            Text(text="Cheeseburger", fontSize = 30.sp, fontWeight = FontWeight.Bold, modifier = Modifier
+                .fillMaxWidth())
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Ingredients:")
+            Text(text="Buns, Ground Beef, Salt, Pepper, American Cheese, Ketchup", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth())
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Directions:")
+            Text(text="Form the ground beef into patties, then season with salt and pepper. Cook on medium heat 5 minutes each side. Add Cheese 1 minute before done. Put on bun and add ketchup.", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth()
+                .padding(vertical = 50.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+
+    }
+}
+
+@Composable
+fun Taco(navController: NavController){
+    var mDisplayMenu by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = {
+            TopAppBar(
+                title = { Text("Recipe Box")} ,backgroundColor = MaterialTheme.colors.primary,
+                actions = {
+
+                    // Make post icon
+                    IconButton(
+                        onClick = {
+                            navController.navigate((Screen.PostScreen.route))
+                        }) {
+                        Icon(painter = painterResource(id = R.drawable.ic_add_box_24), "")
+                    }
+
+                    // Dropdown menu
+                    IconButton(onClick = { mDisplayMenu = !mDisplayMenu }) {
+                        Icon(Icons.Default.MoreVert, "")
+                    }
+                    DropdownMenu(
+                        expanded = mDisplayMenu,
+                        onDismissRequest = { mDisplayMenu = false }
+                    ) {
+
+                        DropdownMenuItem(onClick = { Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show() }) {
+                            Text(text = "Settings")
+                        }
+
+                        DropdownMenuItem(onClick = { Toast.makeText(context, "Logout", Toast.LENGTH_SHORT).show() }) {
+                            Text(text = "Logout")
+                        }
+                    }
+                }
+            )
+        }
+
+    ) { padding ->
+        Column(modifier = Modifier.padding(10.dp)) {
+            Text(text="Chicken Tacos", fontSize = 30.sp, fontWeight = FontWeight.Bold, modifier = Modifier
+                .fillMaxWidth())
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Ingredients:")
+            Text(text="2 Chicken breasts, Taco Seasoning, Cheese, Lettuce, Tortillas", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth())
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Directions:")
+            Text(text="Season chicken with half the bag of seasoning and cook for 30 minutes at 350. Shred chicken and add more seasoning. Put in tortilla and add your toppings", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth()
+                .padding(vertical = 50.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+
+    }
+}
+
+@Composable
+fun ChickenParm(navController: NavController){
+    var mDisplayMenu by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = {
+            TopAppBar(
+                title = { Text("Recipe Box")} ,backgroundColor = MaterialTheme.colors.primary,
+                actions = {
+
+                    // Make post icon
+                    IconButton(
+                        onClick = {
+                            navController.navigate((Screen.PostScreen.route))
+                        }) {
+                        Icon(painter = painterResource(id = R.drawable.ic_add_box_24), "")
+                    }
+
+                    // Dropdown menu
+                    IconButton(onClick = { mDisplayMenu = !mDisplayMenu }) {
+                        Icon(Icons.Default.MoreVert, "")
+                    }
+                    DropdownMenu(
+                        expanded = mDisplayMenu,
+                        onDismissRequest = { mDisplayMenu = false }
+                    ) {
+
+                        DropdownMenuItem(onClick = { Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show() }) {
+                            Text(text = "Settings")
+                        }
+
+                        DropdownMenuItem(onClick = { Toast.makeText(context, "Logout", Toast.LENGTH_SHORT).show() }) {
+                            Text(text = "Logout")
+                        }
+                    }
+                }
+            )
+        }
+
+    ) { padding ->
+        Column(modifier = Modifier.padding(10.dp)) {
+            Text(text="Chicken Parmesan", fontSize = 30.sp, fontWeight = FontWeight.Bold, modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth())
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Ingredients:")
+            Text(text="Chicken Breast, Salt, Pepper, Tomato Sauce, Parmesan, Shredded Mozzarella", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth())
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Directions:")
+            Text(text="Season and bread chicken breasts. Top with sauce, mozzarella and parmesan. Bake for 30 minutes at 350.", modifier = Modifier
+                .background(MaterialTheme.colors.secondary)
+                .fillMaxWidth()
+                .padding(vertical = 50.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+
+    }
 }
 
