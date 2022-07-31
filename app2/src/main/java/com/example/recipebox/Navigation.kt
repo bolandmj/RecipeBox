@@ -16,7 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -118,7 +120,7 @@ fun MainScreen(navController: NavController){
                     navController.navigate((Screen.ChickenParm.route))
                 }
             ) {
-                Text(text = "Lasagna", modifier = Modifier
+                Text(text = "Chicken Parmesan", modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 50.dp))
             }
@@ -227,15 +229,15 @@ fun Cheeseburger(navController: NavController){
 
     ) { padding ->
         Column(modifier = Modifier.padding(10.dp)) {
-            Text(text="Cheeseburger", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
+            Text(text="Cheeseburger", fontSize = 30.sp, fontWeight = FontWeight.Bold, modifier = Modifier
                 .fillMaxWidth())
-
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Ingredients:")
             Text(text="Buns, Ground Beef, Salt, Pepper, American Cheese, Ketchup", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
+                .fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Directions:")
             Text(text="Form the ground beef into patties, then season with salt and pepper. Cook on medium heat 5 minutes each side. Add Cheese 1 minute before done. Put on bun and add ketchup.", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
                 .fillMaxWidth()
@@ -290,15 +292,15 @@ fun Taco(navController: NavController){
 
     ) { padding ->
         Column(modifier = Modifier.padding(10.dp)) {
-            Text(text="Chicken Tacos", modifier = Modifier
-                .background(MaterialTheme.colors.secondary)
+            Text(text="Chicken Tacos", fontSize = 30.sp, fontWeight = FontWeight.Bold, modifier = Modifier
                 .fillMaxWidth())
-
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Ingredients:")
             Text(text="2 Chicken breasts, Taco Seasoning, Cheese, Lettuce, Tortillas", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
+                .fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Directions:")
             Text(text="Season chicken with half the bag of seasoning and cook for 30 minutes at 350. Shred chicken and add more seasoning. Put in tortilla and add your toppings", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
                 .fillMaxWidth()
@@ -353,15 +355,16 @@ fun ChickenParm(navController: NavController){
 
     ) { padding ->
         Column(modifier = Modifier.padding(10.dp)) {
-            Text(text="Chicken Parmesan", modifier = Modifier
+            Text(text="Chicken Parmesan", fontSize = 30.sp, fontWeight = FontWeight.Bold, modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
                 .fillMaxWidth())
-
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Ingredients:")
             Text(text="Chicken Breast, Salt, Pepper, Tomato Sauce, Parmesan, Shredded Mozzarella", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
-                .fillMaxWidth()
-                .padding(vertical = 50.dp))
+                .fillMaxWidth())
             Spacer(modifier = Modifier.height(8.dp))
+            Text(text="Directions:")
             Text(text="Season and bread chicken breasts. Top with sauce, mozzarella and parmesan. Bake for 30 minutes at 350.", modifier = Modifier
                 .background(MaterialTheme.colors.secondary)
                 .fillMaxWidth()
